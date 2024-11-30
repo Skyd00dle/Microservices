@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>userActions</title>
+</head>
+<body>
+<h1 th:text="${user.id} == null ? 'Add User' : 'Edit User'">Add User</h1>
+<form th:action="@{/users/saveUser}" method="POST" th:object="${user}">
+    <table>
+        <tr>
+            <td>
+                <label for="id">User ID</label>
+                <input type="hidden" th:field="*{id}" id="id"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="name">Enter name</label>
+                <input type="text" th:field="*{firstName}" id="name" required/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="last_name">Enter lastname</label>
+                <input type="text" th:field="*{lastName}" id="last_name"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="email">Enter email</label>
+                <input type="text" th:field="*{email}" id="email"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" class="buttonAdd" th:value="${user.id} == 0 ? 'Add User' : 'Update User'"/>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
