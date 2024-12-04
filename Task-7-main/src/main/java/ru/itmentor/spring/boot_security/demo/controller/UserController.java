@@ -19,7 +19,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping
+    @GetMapping("/user")
     public String userPage(Principal principal, Model model) {
         User user = userService.getUserByEmail(principal.getName());
         model.addAttribute("user", user);

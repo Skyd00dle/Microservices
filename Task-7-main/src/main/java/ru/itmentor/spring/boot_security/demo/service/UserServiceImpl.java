@@ -37,13 +37,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updateUser(User user) {
-        User existingUser = userDao.getUserById(user.getId());
-        if (existingUser != null) {
-            existingUser.setEmail(user.getEmail());
-            existingUser.setPassword(user.getPassword());
-            existingUser.setRoles(user.getRoles());
-            userDao.updateUser(existingUser);
-        }
+        userDao.updateUser(user);
     }
 
     @Override
